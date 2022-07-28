@@ -1,5 +1,6 @@
 ﻿using Natalia.Business.Models.Fabricantes.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Natalia.Business.Models.Fabricantes.Services
@@ -26,6 +27,11 @@ namespace Natalia.Business.Models.Fabricantes.Services
         public void Dispose()
         {
             _fabricanteRepository?.Dispose();
+        }
+
+        public async Task<List<Fabricante>> ObterTodos()
+        {
+            return await _fabricanteRepository.ObterTodos();
         }
 
         public async Task Remover(Guid id)

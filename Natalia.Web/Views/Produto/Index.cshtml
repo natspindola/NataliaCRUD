@@ -42,11 +42,11 @@
                 @item.Categoria
             </td>
             <td>
-                @item.Preco
+                @item.Preco.ToString("C")
             </td>
             <td class="text-right">
-                <a class="btn btn-warning" asp-controller="Produto" asp-action="Edit" asp-route-id="@item.Id"> Editar </a>
-                <a class="btn btn-danger" asp-controller="Produto" asp-action="Delete" asp-route-id="@item.Id"> Deletar</a>
+                <a class="btn btn-info" asp-controller="Produto" asp-action="Edit" asp-route-id="@item.Id"> Editar </a>
+                <a class="btn btn-info" asp-controller="Produto" asp-action="Delete" asp-route-id="@item.Id"> Deletar</a>
             </td>
         </tr>
         }

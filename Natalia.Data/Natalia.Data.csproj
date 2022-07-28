@@ -18,4 +18,8 @@
     <ProjectReference Include="..\Natalia.Business\Natalia.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

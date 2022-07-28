@@ -12,6 +12,9 @@ namespace Natalia.Data.Mappings
         public void Configure(EntityTypeBuilder<Produto> builder)
         {
             builder.ToTable("Produtos");
+
+            builder.Property(u => u.Id).ValueGeneratedOnAdd();
+
         }
     }
 }

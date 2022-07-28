@@ -8,9 +8,9 @@ namespace Natalia.Business.Models.Fabricantes.Services
     {
         Task Adicionar(Fabricante fabricante);
         Task Atualizar(Fabricante fabricante);
-        Task Remover(Guid id);
+        Task Remover(int id);
         Task<List<Fabricante>> ObterTodos();
-        Task<Fabricante> BuscarPorId(Guid id);
+        Task<Fabricante> BuscarPorId(int id);
 
     }
 }

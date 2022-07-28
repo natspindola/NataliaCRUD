@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Natalia.Data.Migrations
@@ -11,7 +11,8 @@ namespace Natalia.Data.Migrations
                 name: "Fabricantes",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(nullable: true),
                     Categoria1 = table.Column<string>(nullable: true),
                     Categoria2 = table.Column<string>(nullable: true),
@@ -26,9 +27,10 @@ namespace Natalia.Data.Migrations
                 name: "Produtos",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(nullable: true),
-                    FabricanteId = table.Column<Guid>(nullable: true),
+                    FabricanteId = table.Column<int>(nullable: false),
                     Categoria = table.Column<string>(nullable: true),
                     Preco = table.Column<decimal>(nullable: false)
                 },
@@ -40,7 +42,7 @@ namespace Natalia.Data.Migrations
                         column: x => x.FabricanteId,
                         principalTable: "Fabricantes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

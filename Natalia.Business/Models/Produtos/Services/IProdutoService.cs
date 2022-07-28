@@ -9,8 +9,8 @@ namespace Natalia.Business.Models.Produtos.Services
     {
         Task Adicionar(Produto produto);
         Task Atualizar(Produto produto);
-        Task Remover(Guid id);
+        Task Remover(int id);
         List<Produto> ObterTodos();
-        Task<Produto> BuscarPorId(Guid id);
+        Task<Produto> BuscarPorId(int id);
     }
 }

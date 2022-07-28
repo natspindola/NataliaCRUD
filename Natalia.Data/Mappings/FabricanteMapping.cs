@@ -12,6 +12,8 @@ namespace Natalia.Data.Mappings
         public void Configure(EntityTypeBuilder<Fabricante> builder)
         {
             builder.ToTable("Fabricantes");
+
+            builder.Property(u => u.Id).ValueGeneratedOnAdd();
         }
     }
 }

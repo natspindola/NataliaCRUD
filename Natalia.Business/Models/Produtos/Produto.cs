@@ -22,7 +22,7 @@ namespace Natalia.Business.Models.Fabricantes
         public string Nome { get; private set; }
 
         public Fabricante Fabricante { get; private set; }
-        public Guid FabricanteId { get; set; }
+        public int FabricanteId { get; set; }
 
         public string Categoria { get; private set; }
 

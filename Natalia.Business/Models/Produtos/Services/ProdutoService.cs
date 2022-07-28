@@ -26,7 +26,7 @@ namespace Natalia.Business.Models.Produtos.Services
             await _produtoRepository.Atualizar(produto);
         }
 
-        public async Task<Produto> BuscarPorId(Guid id)
+        public async Task<Produto> BuscarPorId(int id)
         {
             return await _produtoRepository.ObterPorId(id);
         }
@@ -41,7 +41,7 @@ namespace Natalia.Business.Models.Produtos.Services
             return this._produtoRepository.Consultar().ToList();
         }
 
-        public async Task Remover(Guid id)
+        public async Task Remover(int id)
         {
             await _produtoRepository.Remover(id);
         }

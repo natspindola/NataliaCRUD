@@ -24,7 +24,7 @@ namespace Natalia.Business.Models.Fabricantes.Services
             await _fabricanteRepository.Atualizar(fabricante);
         }
 
-        public async Task<Fabricante> BuscarPorId(Guid id)
+        public async Task<Fabricante> BuscarPorId(int id)
         {
             return await _fabricanteRepository.ObterPorId(id);
         }
@@ -39,7 +39,7 @@ namespace Natalia.Business.Models.Fabricantes.Services
             return await _fabricanteRepository.ObterTodos();
         }
 
-        public async Task Remover(Guid id)
+        public async Task Remover(int id)
         {
             await _fabricanteRepository.Remover(id);
         }

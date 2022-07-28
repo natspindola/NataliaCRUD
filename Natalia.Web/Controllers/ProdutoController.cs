@@ -75,7 +75,7 @@ namespace Natalia.Web.Controllers
         }
 
         [HttpGet, ActionName("Delete")]
-        public async Task<ActionResult> Delete(Guid id)
+        public async Task<ActionResult> Delete(int id)
         {
             await _produtoService.Remover(id);
 
@@ -83,7 +83,7 @@ namespace Natalia.Web.Controllers
         }
 
         [HttpGet, ActionName("Edit")]
-        public async Task<ActionResult> Edit(Guid id)
+        public async Task<ActionResult> Edit(int id)
         {
             var entidade = await _produtoService.BuscarPorId(id);
 

@@ -45,7 +45,7 @@ namespace Natalia.Data.Repositories
             Db?.Dispose();
         }
 
-        public virtual async Task<TEntity> ObterPorId(Guid id)
+        public virtual async Task<TEntity> ObterPorId(int id)
         {
             return await DbSet.FindAsync(id);
         }
@@ -55,7 +55,7 @@ namespace Natalia.Data.Repositories
             return await DbSet.ToListAsync();
         }
 
-        public virtual async Task Remover(Guid id)
+        public virtual async Task Remover(int id)
         {
             var entity = await this.ObterPorId(id);
             DbSet.Remove(entity);

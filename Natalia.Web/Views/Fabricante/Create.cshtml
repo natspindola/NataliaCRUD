@@ -1,0 +1,31 @@
+﻿@model Natalia.Web.ViewModels.FabricanteViewModel
+
+@{
+    ViewData["Title"] = "Novo Fabricante";
+}
+
+<h3 style="padding-top: 30px">@ViewData["Title"]</h3>
+
+<hr />
+
+
+<div  class="row">
+    <div class="col-md-5">
+        <form enctype="multipart/form-data" asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <label asp-for="Categoria1" class="control-label"></label>
+            <div class="form-group">
+                <input asp-for="Categoria1" class="form-control" />
+                <input asp-for="Categoria2" class="form-control" />
+                <input asp-for="Categoria3" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

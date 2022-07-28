@@ -21,6 +21,13 @@ namespace Natalia.Web.Controllers
             _mapper = mapper;
         }
 
+        public async Task<ActionResult> Index()
+        {
+            var retorno = _mapper.Map<IEnumerable<FabricanteViewModel>>(await _fabricanteService.ObterTodos());
+
+            return View(retorno);
+        }
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -34,7 +41,15 @@ namespace Natalia.Web.Controllers
 
             await _fabricanteService.Adicionar(entidade);            
 
-            return View();
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet, ActionName("Delete")]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            await _fabricanteService.Remover(id);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

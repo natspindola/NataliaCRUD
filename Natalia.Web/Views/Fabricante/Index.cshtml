@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Natalia.Web.ViewModels.ProdutoViewModel>
+﻿@model IEnumerable<Natalia.Web.ViewModels.FabricanteViewModel>
 
 <p>
-    <a class="btn btn-info" asp-action="Create">Novo Produto</a>
+    <a class="btn btn-info" asp-action="Create">Novo Fabricante</a>
 </p>
 
 <table class="table table-hover">
@@ -14,13 +14,13 @@
                 Nome
             </th>
             <th>
-                Fabricante
+                Categoria 1
             </th>
             <th>
-                Categoria
+                Categoria 2
             </th>
             <th>
-                Preço
+                Categoria 3
             </th>
             <th></th>
         </tr>
@@ -36,17 +36,17 @@
                 @item.Nome
             </td>
             <td>
-                @item.Fabricante.Nome
+                @item.Categoria1
             </td>
             <td>
-                @item.Categoria
+                @item.Categoria2
             </td>
             <td>
-                @item.Preco
+                @item.Categoria3
             </td>
             <td class="text-right">
-                <a class="btn btn-warning" asp-controller="Produtos" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam> </a>
-                <a class="btn btn-danger" asp-controller="Produto" asp-action="Delete" asp-route-id="@item.Id"> Deletar</a>
+                <a class="btn btn-warning" asp-controller="Fabricante" asp-action="Edit" asp-route-id="@item.Id"> Editar</a>
+                <a class="btn btn-danger" asp-controller="Fabricante" asp-action="Delete" asp-route-id="@item.Id"> Deletar</a>
             </td>
         </tr>
         }

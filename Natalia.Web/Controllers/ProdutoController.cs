@@ -68,5 +68,13 @@ namespace Natalia.Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet, ActionName("Delete")]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            await _produtoService.Remover(id);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

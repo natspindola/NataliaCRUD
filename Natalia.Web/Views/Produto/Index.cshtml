@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Natalia.Web.ViewModels.ProdutoViewModel>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Fabricante
+            </th>
+            <th>
+                Categoria
+            </th>
+            <th>
+                Preço
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.Nome
+            </td>
+            <td>
+                @item.Fabricante.Nome
+            </td>
+            <td>
+                @item.Categoria
+            </td>
+            <td>
+                @item.Preco
+            </td>
+            <td class="text-right">
+                <a class="btn btn-warning" asp-controller="Produtos" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam></a>
+                <a class="btn btn-danger" disable-by-claim-name="Produto" disable-by-claim-value="Excluir" asp-controller="Produtos" asp-action="Delete" asp-route-id="@item.Id"><spam class="fa fa-trash"></spam></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

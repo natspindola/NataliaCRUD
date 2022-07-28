@@ -38,6 +38,8 @@ namespace Natalia.Data.Repositories
             return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
         }
 
+        public virtual IQueryable<TEntity> Consultar() => Db.Set<TEntity>().AsQueryable();
+
         public void Dispose()
         {
             Db?.Dispose();

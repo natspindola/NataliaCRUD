@@ -1,5 +1,6 @@
 ﻿using Natalia.Business.Models.Fabricantes;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Natalia.Business.Models.Produtos.Services
@@ -9,5 +10,6 @@ namespace Natalia.Business.Models.Produtos.Services
         Task Adicionar(Produto produto);
         Task Atualizar(Produto produto);
         Task Remover(Guid id);
+        List<Produto> ObterTodos();
     }
 }

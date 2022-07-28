@@ -25,6 +25,13 @@ namespace Natalia.Web.Controllers
             _fabricanteService = fabricanteService;
         }
 
+        public ActionResult Index()
+        {
+            var retorno = _mapper.Map<IEnumerable<ProdutoViewModel>>(_produtoService.ObterTodos());
+
+            return View(retorno);
+        }
+
         [HttpGet]
         public async Task<ActionResult> Create()
         {
@@ -59,7 +66,7 @@ namespace Natalia.Web.Controllers
 
             await _produtoService.Adicionar(entidade);
 
-            return View();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -37,6 +37,13 @@ namespace Natalia.Web.Controllers
         {
             var viewModel = new ProdutoViewModel();
 
+            await AjustarViewModel(viewModel);
+
+            return View(viewModel);
+        }
+
+        private async Task AjustarViewModel(ProdutoViewModel viewModel)
+        {
             var fabricantes = await _fabricanteService.ObterTodos();
 
             viewModel.Fabricantes = _mapper.Map<List<FabricanteViewModel>>(fabricantes);
@@ -55,8 +62,6 @@ namespace Natalia.Web.Controllers
             }
 
             viewModel.Categorias = lista.Distinct().ToList();
-
-            return View(viewModel);
         }
 
         [HttpPost]
@@ -73,6 +78,28 @@ namespace Natalia.Web.Controllers
         public async Task<ActionResult> Delete(Guid id)
         {
             await _produtoService.Remover(id);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet, ActionName("Edit")]
+        public async Task<ActionResult> Edit(Guid id)
+        {
+            var entidade = await _produtoService.BuscarPorId(id);
+
+            var retorno = _mapper.Map<ProdutoViewModel>(entidade);
+
+            await AjustarViewModel(retorno);
+
+            return View(retorno);
+        }
+
+        [HttpPost, ActionName("Edit")]
+        public async Task<ActionResult> Edit(ProdutoViewModel produtoViewModel)
+        {
+            var entidade = _mapper.Map<Produto>(produtoViewModel);
+
+            await _produtoService.Atualizar(entidade);
 
             return RedirectToAction(nameof(Index));
         }

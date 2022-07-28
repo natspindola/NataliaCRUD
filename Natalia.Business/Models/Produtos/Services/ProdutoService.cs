@@ -26,6 +26,11 @@ namespace Natalia.Business.Models.Produtos.Services
             await _produtoRepository.Atualizar(produto);
         }
 
+        public async Task<Produto> BuscarPorId(Guid id)
+        {
+            return await _produtoRepository.ObterPorId(id);
+        }
+
         public void Dispose()
         {
             _produtoRepository?.Dispose();

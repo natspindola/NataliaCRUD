@@ -39,7 +39,7 @@ namespace Natalia.Web.Controllers
         {
             var entidade = _mapper.Map<Fabricante>(fabricanteViewModel);
 
-            await _fabricanteService.Adicionar(entidade);            
+            await _fabricanteService.Adicionar(entidade);
 
             return RedirectToAction(nameof(Index));
         }
@@ -51,5 +51,28 @@ namespace Natalia.Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet, ActionName("Edit")]
+        public async Task<ActionResult> Edit(Guid id)
+        {
+            var entidade = await _fabricanteService.BuscarPorId(id);
+
+            var retorno = _mapper.Map<FabricanteViewModel>(entidade);
+
+            return View(retorno);
+        }
+
+        [HttpPost, ActionName("Edit")]
+        public async Task<ActionResult> Edit(FabricanteViewModel fabricanteViewModel)
+        {
+            var entidade = _mapper.Map<Fabricante>(fabricanteViewModel);
+
+            await _fabricanteService.Atualizar(entidade);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
     }
 }

@@ -1,0 +1,23 @@
+﻿@model Natalia.Web.ViewModels.FabricanteViewModel
+
+
+<div  class="row">
+    <div class="col-md-5">
+        <form asp-action="Edit">
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <label class="control-label">Categoria</label>
+            <div class="form-group">
+                <input asp-for="Categoria1" class="form-control" />
+                <input asp-for="Categoria2" class="form-control" />
+                <input asp-for="Categoria3" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

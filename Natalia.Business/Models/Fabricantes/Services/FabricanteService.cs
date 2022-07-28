@@ -24,6 +24,11 @@ namespace Natalia.Business.Models.Fabricantes.Services
             await _fabricanteRepository.Atualizar(fabricante);
         }
 
+        public async Task<Fabricante> BuscarPorId(Guid id)
+        {
+            return await _fabricanteRepository.ObterPorId(id);
+        }
+
         public void Dispose()
         {
             _fabricanteRepository?.Dispose();
